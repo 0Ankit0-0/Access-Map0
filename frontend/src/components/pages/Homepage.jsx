@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchIncidents = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/incidents");
+        const response = await axios.get("https://access-map0.onrender.com/api/incidents");
         const votable = response.data.filter(incident => !incident.isApproved);
         const approved = response.data.filter(incident => incident.isApproved);
 
