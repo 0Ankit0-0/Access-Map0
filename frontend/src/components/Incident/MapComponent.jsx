@@ -70,7 +70,7 @@ const MapComponent = ({ onLocationSelect, selectedType, onClearLocation, isRepor
 
   const fetchIncidents = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/incidents');
+      const response = await fetch('https://access-map0.onrender.com/api/incidents');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
