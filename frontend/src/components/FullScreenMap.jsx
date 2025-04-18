@@ -64,7 +64,7 @@ const FullScreenMap = ({ onLocationSelect, selectedType, onClearLocation, isRepo
 
   const fetchIncidents = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/incidents');
+      const response = await fetch('https://access-map0.onrender.com/api/incidents');
       const data = await response.json();
       const valid = data.filter(inc => inc.latitude && inc.longitude);
       setBackendIncidents(valid);
