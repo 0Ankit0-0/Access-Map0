@@ -56,7 +56,7 @@ const Signup = () => {
 
     if (validateForm()) {
       try {
-        await axios.post(`http://localhost:5001/api/auth/register`, {
+        await axios.post(`https://access-map0.onrender.com/api/auth/register`, {
           name: formData.name,
           email: formData.email,
           password: formData.password,
