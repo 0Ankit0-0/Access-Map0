@@ -78,7 +78,7 @@ const ReportIncident = () => {
       console.log("FormData before sending:", formData); // Log the FormData
 
       const response = await axios.post(
-        "http://localhost:5001/api/incident/report",
+        "https://access-map0.onrender.com/api/incident/report",
         formData,
         {
           headers: {
