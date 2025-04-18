@@ -1,0 +1,177 @@
+.navbar {
+  background-color: #282a36; /* Dracula background */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between; /* Space out logo/title and nav links */
+  align-items: center; /* Vertically align items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbarBrand {
+  color: #f8f8f2; /* Dracula foreground */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 1rem; /* Slightly reduced gap */
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  color: #f8f8f2; /* Dracula foreground */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem; /* Slightly smaller font */
+  padding: 0.5rem 0.8rem; /* Adjusted padding */
+  border-radius: 6px; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navLink:hover {
+  background-color: #44475a; 
+  transform: translateY(-1px); 
+}
+
+.reportLink {
+  color: #ffffff; /* Dracula background for contrast */
+  font-weight: bold;
+}
+
+.logOut{
+  color: white;
+  font-weight: bold;
+}
+.logOut:hover {
+  background-color: #ff1a3c;
+  color: #4067c1;
+}
+
+button.navLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+  margin: 0; /* Remove default button margins */
+  padding: 0.5rem 0.8rem; /* Match link padding */
+  border-radius: 6px; /* Match link border-radius */
+  color: #f8f8f2; /* Match link color */
+  font-weight: 500; 
+  font-size: 0.9rem; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex; /* Use flex to align button text */
+  align-items: center;
+  height: auto;
+  line-height: inherit;
+}
+
+button.navLink:hover {
+  background-color: #44475a;
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+
+/* Small screens (up to 600px) */
+@media screen and (max-width: 600px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .navList {
+    flex-direction: column; /* Stack links vertically */
+    gap: 0.6rem;
+    margin-top: 0.8rem; /* Add some space below the brand */
+    width: 100%; /* Make the list take full width */
+  }
+
+  .navItem {
+    width: 100%;
+  }
+
+  .navLink,
+  button.navLink {
+    display: block; /* Make links take full width for easier tapping */
+    width: 100%;
+    padding: 0.6rem 1rem;
+    text-align: left; /* Align text to the left */
+    border-radius: 4px;
+  }
+
+  .navbarBrand {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .navList {
+    gap: 0.8rem;
+  }
+
+  .navLink,
+  button.navLink {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .navbarBrand {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .navbar {
+    padding: 1rem 2rem;
+    flex-direction: row; /* Keep items in a row */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navList {
+    flex-direction: row; 
+    gap: 1rem;
+    margin-top: 0;
+    width: auto;
+  }
+
+  .navItem {
+    width: auto;
+  }
+
+  .navLink,
+  button.navLink {
+    display: inline-flex; 
+    width: auto;
+    padding: 0.5rem 0.8rem;
+    text-align: left; 
+    border-radius: 6px;
+    align-items: center; 
+  }
+
+  .navbarBrand {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+  }
+}

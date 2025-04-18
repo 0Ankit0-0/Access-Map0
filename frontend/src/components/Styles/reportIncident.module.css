@@ -1,0 +1,110 @@
+.reportIncidentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.mapContainer {
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  height: 300px;
+  position: relative; /* if needed */
+  z-index: 1;
+  
+}
+
+
+.form {
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Add some space below the form */
+  background-color: #f9f9f9;
+}
+
+.form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.mapContainer {
+  width: 100%;
+  margin-bottom: 20px; /* Add space below the map */
+  /* Remove any position: fixed or position: absolute here */
+}
+
+.mapContainer p {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+}
+
+.inputGroup {
+  margin-bottom: 15px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.inputGroup input[type="text"],
+.inputGroup textarea,
+.inputGroup select,
+.inputGroup input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.inputGroup textarea {
+  resize: vertical;
+}
+
+.locationInfo {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  font-size: 0.95em;
+  color: #444;
+}
+
+.submitButton {
+  background-color: #ff8c00; /* Orange */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #cc6d00;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.locationWarning {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}

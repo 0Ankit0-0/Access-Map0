@@ -1,0 +1,31 @@
+.homePageContainer {
+  background-color: #0a192f;
+  color: #ffcc99;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffcba4;
+}
+
+.incidentsSection {
+  margin-bottom: 3rem;
+}
+
+.incidentsSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ffcc99;
+  padding-bottom: 5px;
+}
+
+.incidentsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}

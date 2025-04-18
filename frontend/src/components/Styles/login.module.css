@@ -1,0 +1,184 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4a4e69, #22223b);
+  animation: gradientAnimation 4s ease infinite alternate;
+  padding: 2rem;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(135deg, #4a4e69, #22223b);
+  }
+  100% {
+    background: linear-gradient(135deg, #22223b, #4a4e69);
+  }
+}
+
+.loginForm {
+  background-color: #f4f1de;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 420px;
+  animation: formFadeIn 0.6s ease-out;
+}
+
+@keyframes formFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loginForm h2 {
+  color: #3d405b;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  animation: headingSlideIn 0.6s ease-out;
+  text-align: center;
+}
+
+@keyframes headingSlideIn {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #22223b;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputGroup input {
+  width: 95%;
+  padding: 12px 14px;
+  border: 1px solid #a27b5c;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fdfaf6;
+  color: #22223b;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #e07a5f;
+  box-shadow: 0 0 0 4px rgba(224, 122, 95, 0.2);
+  outline: none;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  top: 35%;
+  transform: translateY(-60%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggleIcon {
+  font-size: 1.2em;
+  color: #846043;
+}
+
+.error {
+  color: #e07a5f;
+  font-size: 0.85em;
+  margin-top: 6px;
+}
+
+.loginButton {
+  width: 50%;
+  padding: 12px;
+  background-color: #3d405b;
+  color: #fdfaf6;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.loginButton:hover {
+  background-color: #562214;
+  transform: scale(1.03);
+}
+
+.loginButton:active {
+  transform: scale(0.97);
+}
+
+.signupLink {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #22223b;
+}
+
+.signupButton {
+  color: #a27b5c;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.signupButton:hover {
+  color: #e07a5f;
+}
+
+@media screen and (max-width: 768px) {
+  .loginForm {
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 90%;
+    border-radius: 10px;
+  }
+
+  .loginForm h2 {
+    font-size: 1.5rem;
+  }
+
+  .loginButton {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .signupLink {
+    font-size: 0.9rem;
+  }
+
+  .inputGroup input {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+
+  .toggleIcon {
+    font-size: 1rem;
+  }
+}
