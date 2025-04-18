@@ -33,7 +33,7 @@ const Login = ({ setUser }) => {
 
     if (validateForm()) {
       try {
-        const res = await axios.post("http://localhost:5001/api/auth/login", formData);
+        const res = await axios.post("https://access-map0.onrender.com/api/auth/login", formData);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setUser(res.data.user);
