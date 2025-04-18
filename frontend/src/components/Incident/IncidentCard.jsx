@@ -18,7 +18,7 @@ const IncidentCard = ({ incident, setIncidents }) => {
       }
 
       const response = await axios.post(
-        `http://localhost:5001/api/incident/${incident._id}/vote`,
+        `https://access-map0.onrender.com/api/incident/${incident._id}/vote`,
         {},
         {
           headers: {
