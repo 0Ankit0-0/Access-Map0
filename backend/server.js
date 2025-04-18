@@ -15,7 +15,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new socketIo(server, {
   cors: {
-    origin: "http://localhost:3000", // Allow requests from your frontend
+    origin: "access-map0.vercel.app", // Allow requests from your frontend
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   },
