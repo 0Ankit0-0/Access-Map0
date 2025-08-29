@@ -1,28 +1,34 @@
 .navbar {
-  background-color: #282a36; /* Dracula background */
+  background-color: #1a1a2e;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between; /* Space out logo/title and nav links */
-  align-items: center; /* Vertically align items */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 
 .navbarBrand {
-  color: #f8f8f2; /* Dracula foreground */
+  color: #eee;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .navList {
   list-style: none;
   display: flex;
-  gap: 1rem; /* Slightly reduced gap */
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .navItem {
@@ -30,76 +36,121 @@
 }
 
 .navLink {
-  color: #f8f8f2; /* Dracula foreground */
+  color: #eee;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem; /* Slightly smaller font */
-  padding: 0.5rem 0.8rem; /* Adjusted padding */
-  border-radius: 6px; 
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
   background-color: transparent;
   display: inline-flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.navLink:hover::before {
+  left: 100%;
 }
 
 .navLink:hover {
-  background-color: #44475a; 
-  transform: translateY(-1px); 
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .reportLink {
-  color: #ffffff; /* Dracula background for contrast */
-  font-weight: bold;
-}
-
-.logOut{
+  background: linear-gradient(45deg, #667eea, #764ba2);
   color: white;
   font-weight: bold;
-}
-.logOut:hover {
-  background-color: #ff1a3c;
-  color: #4067c1;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
-button.navLink {
-  background: none;
+.reportLink:hover {
+  background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.logOut {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+  font-weight: bold;
   border: none;
   cursor: pointer;
   font: inherit;
   text-decoration: none;
-  margin: 0; /* Remove default button margins */
-  padding: 0.5rem 0.8rem; /* Match link padding */
-  border-radius: 6px; /* Match link border-radius */
-  color: #f8f8f2; /* Match link color */
-  font-weight: 500; 
-  font-size: 0.9rem; 
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: inline-flex; /* Use flex to align button text */
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-flex;
   align-items: center;
-  height: auto;
-  line-height: inherit;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
 }
 
-button.navLink:hover {
-  background-color: #44475a;
-  transform: translateY(-1px);
+.logOut:hover {
+  background: linear-gradient(45deg, #ff5252, #e53935);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
 }
 
-/* Responsive adjustments */
+/* Mobile Menu Toggle */
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #eee;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
 
-/* Small screens (up to 600px) */
-@media screen and (max-width: 600px) {
+.mobileMenuToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
   .navbar {
-    padding: 0.8rem 1rem;
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the left */
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navbarBrand {
+    font-size: 1.3rem;
+  }
+
+  .mobileMenuToggle {
+    display: block;
   }
 
   .navList {
-    flex-direction: column; /* Stack links vertically */
-    gap: 0.6rem;
-    margin-top: 0.8rem; /* Add some space below the brand */
-    width: 100%; /* Make the list take full width */
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navList.open {
+    display: flex;
   }
 
   .navItem {
@@ -107,71 +158,33 @@ button.navLink:hover {
   }
 
   .navLink,
-  button.navLink {
-    display: block; /* Make links take full width for easier tapping */
+  .logOut {
     width: 100%;
-    padding: 0.6rem 1rem;
-    text-align: left; /* Align text to the left */
-    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1rem;
+    justify-content: center;
   }
 
-  .navbarBrand {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 601px) and (max-width: 768px) {
-  .navbar {
-    padding: 0.8rem 1.5rem;
-  }
-
-  .navList {
-    gap: 0.8rem;
-  }
-
-  .navLink,
-  button.navLink {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.6rem;
-  }
-
-  .navbarBrand {
-    font-size: 1.15rem;
+  .navLink:hover,
+  .logOut:hover {
+    transform: none;
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (max-width: 480px) {
   .navbar {
-    padding: 1rem 2rem;
-    flex-direction: row; /* Keep items in a row */
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .navList {
-    flex-direction: row; 
-    gap: 1rem;
-    margin-top: 0;
-    width: auto;
-  }
-
-  .navItem {
-    width: auto;
-  }
-
-  .navLink,
-  button.navLink {
-    display: inline-flex; 
-    width: auto;
-    padding: 0.5rem 0.8rem;
-    text-align: left; 
-    border-radius: 6px;
-    align-items: center; 
+    padding: 0.75rem;
   }
 
   .navbarBrand {
     font-size: 1.2rem;
-    margin-bottom: 0;
+  }
+
+  .navLink,
+  .logOut {
+    padding: 0.875rem;
+    font-size: 0.95rem;
   }
 }

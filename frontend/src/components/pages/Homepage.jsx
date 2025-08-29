@@ -36,7 +36,9 @@ const HomePage = () => {
         <h2>Pending Approval</h2>
         <div className={styles.incidentsList}>
           {votableIncidents.length === 0 ? (
-            <p>No incidents pending approval.</p>
+            <div className={styles.noIncidents}>
+              <p>No incidents pending approval.</p>
+            </div>
           ) : (
             votableIncidents.map((incident) => (
               <IncidentCard
@@ -53,7 +55,9 @@ const HomePage = () => {
         <h2>Approved Incidents</h2>
         <div className={styles.incidentsList}>
           {approvedIncidents.length === 0 ? (
-            <p>No approved incidents yet.</p>
+            <div className={styles.noIncidents}>
+              <p>No approved incidents yet.</p>
+            </div>
           ) : (
             approvedIncidents.map((incident) => (
               <IncidentCard

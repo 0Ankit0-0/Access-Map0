@@ -3,69 +3,58 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #4a4e69, #22223b);
-  animation: gradientAnimation 4s ease infinite alternate;
-  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background: linear-gradient(135deg, #4a4e69, #22223b);
-  }
-  100% {
-    background: linear-gradient(135deg, #22223b, #4a4e69);
-  }
+.signupContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
 }
 
 .signupForm {
-  background-color: #f4f1de; /* Light background matching home */
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 420px;
-    animation: formFadeIn 0.6s ease-out;
-}
-
-@keyframes formFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  max-width: 450px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .signupForm h2 {
-  color: #3d405b;
-  margin-bottom: 25px;
-  font-size: 1.8rem;
-  animation: headingSlideIn 0.6s ease-out;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2rem;
   text-align: center;
-}
-
-@keyframes headingSlideIn {
-  from {
-    transform: translateX(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  font-weight: 700;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .inputGroup {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .inputGroup label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 0.75rem;
   font-weight: 600;
-  color: #22223b;
+  color: #2c3e50;
+  font-size: 0.95rem;
 }
 
 .inputWrapper {
@@ -73,81 +62,158 @@
 }
 
 .inputGroup input {
-  width: 95%;
-  padding: 12px 14px;
-  border: 1px solid #a27b5c;
-  border-radius: 6px;
-  font-size: 16px;
-  background-color: #fdfaf6;
-  color: #22223b;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .inputGroup input:focus {
-  border-color: #e07a5f;
-  box-shadow: 0 0 0 4px rgba(224, 122, 95, 0.2);
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
   outline: none;
+  transform: translateY(-2px);
 }
 
 .passwordToggle {
   position: absolute;
-  right: 12px;
-  top: 30%;
-  transform: translateY(-60%);
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0.5rem;
+  color: #667eea;
+  transition: color 0.3s ease;
+}
+
+.passwordToggle:hover {
+  color: #5a6fd8;
 }
 
 .toggleIcon {
-  font-size: 1.2em;
-  color: #a27b5c;
+  font-size: 1.2rem;
 }
 
 .error {
-  color: #e07a5f;
-  font-size: 0.85em;
-  margin-top: 6px;
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
 .signupButton {
-  width: 50%;
-  padding: 12px;
-  background-color: #3d405b;
-  color: #fdfaf6;
-  font-size: 1rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  font-size: 1.1rem;
   font-weight: 600;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
 }
 
 .signupButton:hover {
-  background-color: #46170b;
-  transform: scale(1.03);
+  background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
 }
 
 .signupButton:active {
-  transform: scale(0.97);
+  transform: translateY(0);
 }
 
 .loginLink {
-  margin-top: 20px;
   text-align: center;
   font-size: 0.95rem;
-  color: #22223b;
+  color: #555;
 }
 
 .loginButtonLink {
-  color: #a27b5c;
+  color: #667eea;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .loginButtonLink:hover {
-  color: #e07a5f;
+  color: #5a6fd8;
+  text-decoration: underline;
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+  .signupContainer {
+    padding: 1rem 0.5rem;
+  }
+
+  .signupForm {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .signupForm h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .inputGroup {
+    margin-bottom: 1.25rem;
+  }
+
+  .inputGroup input {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .signupButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .signupContainer {
+    padding: 0.5rem;
+  }
+
+  .signupForm {
+    padding: 1.5rem 1rem;
+  }
+
+  .signupForm h2 {
+    font-size: 1.5rem;
+  }
+
+  .inputGroup input {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .signupButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .passwordToggle {
+    right: 0.75rem;
+    padding: 0.25rem;
+  }
+
+  .toggleIcon {
+    font-size: 1rem;
+  }
 }

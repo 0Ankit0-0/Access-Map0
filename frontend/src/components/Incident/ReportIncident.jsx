@@ -119,7 +119,9 @@ const ReportIncident = () => {
             isReportingMode={true}
             incidentData={incidentData} // Pass incidentData as a prop
           />
-          <p>Selected Location: {incidentData.placeName || "Click on the map or search for a location"}</p>
+          <p>
+            <strong>Selected Location:</strong> {incidentData.placeName || "Click on the map or search for a location"}
+          </p>
         </div>
 
         <div className={styles.inputGroup}>

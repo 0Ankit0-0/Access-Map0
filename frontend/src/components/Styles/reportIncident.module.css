@@ -1,110 +1,253 @@
 .reportIncidentContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
 }
-
-.mapContainer {
-  width: 100%;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  height: 300px;
-  position: relative; /* if needed */
-  z-index: 1;
-  
-}
-
 
 .form {
-  width: 90%;
-  max-width: 600px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 20px; /* Add some space below the form */
-  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
 .form h2 {
   text-align: center;
-  color: #333;
-  margin-bottom: 15px;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .mapContainer {
   width: 100%;
-  margin-bottom: 20px; /* Add space below the map */
-  /* Remove any position: fixed or position: absolute here */
+  height: 400px;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .mapContainer p {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: #555;
-  margin-top: 5px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  padding: 0.75rem;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 8px;
 }
 
 .inputGroup {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .inputGroup label {
   display: block;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: bold;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .inputGroup input[type="text"],
+.inputGroup input[type="number"],
 .inputGroup textarea,
 .inputGroup select,
 .inputGroup input[type="file"] {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 1rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus,
+.inputGroup select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  outline: none;
+  transform: translateY(-2px);
 }
 
 .inputGroup textarea {
   resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.inputGroup select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 3rem;
+  appearance: none;
+}
+
+.inputGroup input[type="file"] {
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.inputGroup input[type="file"]::-webkit-file-upload-button {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-weight: 500;
 }
 
 .locationInfo {
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  background-color: #f2f2f2;
-  font-size: 0.95em;
-  color: #444;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.locationInfo p {
+  margin: 0.25rem 0;
+  font-weight: 500;
 }
 
 .submitButton {
-  background-color: #ff8c00; /* Orange */
+  width: 100%;
+  background: linear-gradient(45deg, #667eea, #764ba2);
   color: white;
-  padding: 12px 20px;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  margin-top: 1rem;
 }
 
-.submitButton:hover {
-  background-color: #cc6d00;
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .submitButton:disabled {
-  background-color: #ccc;
+  background: #95a5a6;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .locationWarning {
-  color: red;
-  font-size: 0.9em;
-  margin-top: 5px;
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+  padding: 0.75rem;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+  .reportIncidentContainer {
+    padding: 1rem 0.5rem;
+  }
+
+  .form {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .mapContainer {
+    height: 300px;
+    margin-bottom: 1.5rem;
+  }
+
+  .inputGroup {
+    margin-bottom: 1.25rem;
+  }
+
+  .inputGroup input,
+  .inputGroup textarea,
+  .inputGroup select {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .submitButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .reportIncidentContainer {
+    padding: 0.5rem;
+  }
+
+  .form {
+    padding: 1.25rem;
+  }
+
+  .mapContainer {
+    height: 250px;
+  }
+
+  .inputGroup input,
+  .inputGroup textarea,
+  .inputGroup select {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .inputGroup textarea {
+    min-height: 100px;
+  }
+
+  .submitButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .locationInfo {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
 }

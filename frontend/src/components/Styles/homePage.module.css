@@ -1,31 +1,98 @@
 .homePageContainer {
-  background-color: #0a192f;
-  color: #ffcc99;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  color: #fff;
 }
 
 .pageTitle {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #ffcba4;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 3rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .incidentsSection {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .incidentsSection h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #ffcc99;
-  padding-bottom: 5px;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.incidentsSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #feca57);
+  border-radius: 2px;
 }
 
 .incidentsList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.noIncidents {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+  .homePageContainer {
+    padding: 1rem 0.5rem;
+  }
+
+  .incidentsList {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .incidentsSection {
+    margin-bottom: 3rem;
+  }
+
+  .pageTitle {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .homePageContainer {
+    padding: 0.5rem;
+  }
+
+  .incidentsList {
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .incidentsSection h2 {
+    margin-bottom: 1.5rem;
+  }
 }
