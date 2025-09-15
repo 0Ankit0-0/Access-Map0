@@ -36,16 +36,11 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/incident", incidentRoutes); // Updated to /incident
 app.use("/api/auth", authRoutes);
 
-app.get('/api/incidents', async (req, res) => {
-  try {
-    // Fetch all incidents from the database
-    const incidents = await Incident.find();  // You can add query params for filtering
-    res.status(200).json(incidents);  // Send the data as a JSON response
-  } catch (err) {
-    console.error('Error fetching incidents:', err);
-    res.status(500).json({ message: 'Server error while fetching incidents.' });
-  }
-});
+import {
+  getPaginatedIncidents,
+} from './controllers/incidentController.js';
+
+app.get('/api/incidents', getPaginatedIncidents);
 
 // Socket.IO connection
 io.on("connection", (socket) => {

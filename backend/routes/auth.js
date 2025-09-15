@@ -1,10 +1,11 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import User from "../models/User.js"; // Make sure to use the correct file extension when importing
+import User from "../models/User.js";
+import { authRateLimiter } from "../middleware/rateLimiter.js";
 
 const router = express.Router();
 
-router.post("/register", async (req, res) => {
+router.post("/register", authRateLimiter, async (req, res) => {
   try {
     const { name, password, email, dob } = req.body;
 
@@ -27,7 +28,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", authRateLimiter, async (req, res) => {
   try {
     const { email, password } = req.body;
 

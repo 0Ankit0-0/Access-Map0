@@ -1,72 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import IncidentCard from '../Incident/IncidentCard';
-import styles from '../Styles/homePage.module.css';
+import React from 'react';
+import MapPreviewCard from '../MapPreviewCard';
+import ReportIncidentCard from '../ReportIncidentCard';
+import RecentIncidentsCard from '../RecentIncidentsCard';
+import StatsCard from '../StatsCard';
 
 const HomePage = () => {
-  const [incidents, setIncidents] = useState([]);
-  const [votableIncidents, setVotableIncidents] = useState([]);
-  const [approvedIncidents, setApprovedIncidents] = useState([]);
-
-  useEffect(() => {
-    const fetchIncidents = async () => {
-      try {
-        const response = await axios.get("https://access-map0.onrender.com/api/incidents");
-        const votable = response.data.filter(incident => !incident.isApproved);
-        const approved = response.data.filter(incident => incident.isApproved);
-
-        console.log("Fetched incidents:", response.data); // Log the fetched incidents
-
-        setIncidents(response.data);
-        setVotableIncidents(votable);
-        setApprovedIncidents(approved);
-      } catch (error) {
-        console.error("Error fetching incidents:", error);
-      }
-    };
-
-    fetchIncidents();
-  }, []);
-
   return (
-    <div className={styles.homePageContainer}>
-      <h1 className={styles.pageTitle}>Accessibility Issues</h1>
-
-      <div className={styles.incidentsSection}>
-        <h2>Pending Approval</h2>
-        <div className={styles.incidentsList}>
-          {votableIncidents.length === 0 ? (
-            <div className={styles.noIncidents}>
-              <p>No incidents pending approval.</p>
-            </div>
-          ) : (
-            votableIncidents.map((incident) => (
-              <IncidentCard
-                key={incident._id}
-                incident={incident}
-                setIncidents={setIncidents}
-              />
-            ))
-          )}
+    <div className="p-8 bg-slate-100">
+      <h1 className="text-4xl font-bold text-slate-900">Welcome back, John Doe</h1>
+      <p className="text-slate-500 mt-2">Here's a snapshot of your community's accessibility map.</p>
+      {/* Pagination UI can be implemented here for incidents list, using page and limit query params */}
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-4 grid-rows-3 gap-6">
+        <div className="md:col-span-2 md:row-span-2">
+          <MapPreviewCard />
         </div>
-      </div>
-
-      <div className={styles.incidentsSection}>
-        <h2>Approved Incidents</h2>
-        <div className={styles.incidentsList}>
-          {approvedIncidents.length === 0 ? (
-            <div className={styles.noIncidents}>
-              <p>No approved incidents yet.</p>
-            </div>
-          ) : (
-            approvedIncidents.map((incident) => (
-              <IncidentCard
-                key={incident._id}
-                incident={incident}
-                setIncidents={setIncidents}
-              />
-            ))
-          )}
+        <div className="md:col-span-2">
+          <ReportIncidentCard />
+        </div>
+        <div className="md:col-span-2 md:row-span-2">
+          <RecentIncidentsCard />
+        </div>
+        <div className="md:col-span-1">
+          <StatsCard title="Approved Incidents" value="142" />
+        </div>
+        <div className="md:col-span-1">
+          <StatsCard title="Total Reports" value="256" />
         </div>
       </div>
     </div>
